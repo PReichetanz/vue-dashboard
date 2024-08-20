@@ -46,7 +46,7 @@ export default {
     data: [
       {
         patientID: 1,
-        patientName: 'James',
+        patientName: 'Peter Müller',
         studyDate: calculatedDate,
         bodyPartExamined: 'Knee',
         dataIsUploaded: true,
@@ -55,7 +55,7 @@ export default {
       },
       {
         patientID: 2,
-        patientName: 'Carol',
+        patientName: 'Sabine Meier',
         studyDate: calculatedDate,
         bodyPartExamined: 'Abdomen',
         dataIsUploaded: true,
@@ -64,7 +64,7 @@ export default {
       },
       {
         patientID: 3,
-        patientName: 'Sam',
+        patientName: 'Ulrich Knut',
         studyDate: calculatedDate,
         bodyPartExamined: 'Foot',
         dataIsUploaded: true,
@@ -88,12 +88,10 @@ header {
   margin: 0 auto 2rem;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+header {
+  display: flex;
+  place-items: center;
+  justify-content: center;
 
   .logo {
     margin: 0 2rem 0 0;
