@@ -8,10 +8,25 @@
   </header>
   <PatientIssueTable :headers="headers" :data="data">
     <template #column0="{ entity }">
-      {{ entity.name }}
+      {{ entity.patientID }}
     </template>
     <template #column1="{ entity }">
-      {{ entity.age }}
+      {{ entity.patientName }}
+    </template>
+    <template #column2="{ entity }">
+      {{ entity.studyDate }}
+    </template>
+    <template #column3="{ entity }">
+      {{ entity.bodyPartExamined }}
+    </template>
+    <template #column4="{ entity }">
+      {{ entity.dataIsUploaded ? '✅' : '🚫' }}
+    </template>
+    <template #column5="{ entity }">
+      {{ entity.printingIsSuccessful ? '✅' : '🚫' }}
+    </template>
+    <template #column6="{ entity }">
+      {{ entity.errorMessage ? entity.errorMessage : '' }}
     </template>
   </PatientIssueTable>
 </template>
@@ -19,28 +34,43 @@
 <script lang="ts">
 import PatientIssueTable from '@/components/PatientIssues.vue'
 
+const calculatedDate = new Date().toLocaleDateString('de-DE')
+
 export default {
   components: {
     PatientIssueTable
   },
 
   data: () => ({
-    headers: ['Name', 'Age', 'Favourite Hobbies'],
+    headers: ['ID', 'Name', 'Datum', 'Körperteil', 'Hochgeladen', 'Ausgedruckt', 'Fehlermeldung'],
     data: [
       {
-        name: 'James',
-        age: 21,
-        hobbies: ['tennis', 'coding']
+        patientID: 1,
+        patientName: 'James',
+        studyDate: calculatedDate,
+        bodyPartExamined: 'Knee',
+        dataIsUploaded: true,
+        printingIsSuccessful: true,
+        errorMessage: null
       },
       {
-        name: 'Carol',
-        age: 22,
-        hobbies: ['gaming', 'reading', 'debating']
+        patientID: 2,
+        patientName: 'Carol',
+        studyDate: calculatedDate,
+        bodyPartExamined: 'Abdomen',
+        dataIsUploaded: true,
+        printingIsSuccessful: true,
+        errorMessage: null
       },
       {
-        name: 'Sam',
-        age: 25,
-        hobbies: ['brunching', 'going to the gym', 'painting']
+        patientID: 3,
+        patientName: 'Sam',
+        studyDate: calculatedDate,
+        bodyPartExamined: 'Foot',
+        dataIsUploaded: true,
+        printingIsSuccessful: false,
+        errorMessage:
+          'Fehler beim Drucken der PDF – es konnte keine Verbindung zum Drucker hergestellt werden. Prüfen Sie die Verbindung und versuchen Sie es erneut.'
       }
     ]
   })
