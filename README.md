@@ -1,6 +1,6 @@
 # vue-dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+Creates a simple dashboard using Vue 3, meant as an example of how a dashboard could look like and an exercise to create it with Vue.
 
 ## Recommended IDE Setup
 
